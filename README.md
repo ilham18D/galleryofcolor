@@ -2,26 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+```sh
+// with npm
+npm install 
 
-In the project directory, you can run:
+// with yarn
+yarn / yarn install
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+yarn start = localhost:3000
+```
 
 ## Task for REACT :
     * 40 unique random colors
     * filters to hide/show By category (select auto Autocomplete)
-    * boolean/checbox saturation for all element
-
-
-## not yet reachable
-    * boolean/checbox saturation which can be random for each element
+    * boolean/checbox saturation all element
+    * boolean/checbox saturation  filter element
 
 ## Learn More
 

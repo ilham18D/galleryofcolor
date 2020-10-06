@@ -90,6 +90,22 @@ function App() {
   const [stateColor, setStateColor] = React.useState<Color[]>([]);
   const [stateSaturate, setStateSturate] = React.useState("saturate(1)");
   const [stateCheckbox, setStateCheckbox] = React.useState(false);
+  const [stateFilterCheckbox, setStateFilterCheckbox] = React.useState(false);
+  //filter data checkbox
+  const filterDataCheckbox = async (newData: Color[]) => {
+    let bigDataFilter: Color[] = [];
+    for (let i = 0; i < newData.length; i++) {
+      const hslColorArr = newData[i].hsl.split("").slice(0, -1);
+      await hslColorArr.shift();
+      const tamp = hslColorArr.toString().replace(/[^\w\s]/gi, "");
+      const converArr = tamp.split(" ", 3);
+      const hsl = parseInt(converArr[2]);
+      if (newData[i] && hsl > 60) {
+        bigDataFilter.push(newData[i]);
+      }
+    }
+    setStateColor(bigDataFilter);
+  };
 
   // filter data
   const filterData = (value: string) => {
@@ -149,7 +165,7 @@ function App() {
         </Grid>
         {/* end */}
 
-        {/* checkbox saturate */}
+        {/* checkbox saturate set saturate true = +4 flase = 1*/}
         <FormControlLabel
           className={classes.combox}
           control={
@@ -166,9 +182,28 @@ function App() {
               inputProps={{ "aria-label": "primary checkbox" }}
             />
           }
-          label="Saturate"
+          label="Set All saturation  "
         />
         {/* end */}
+
+        <FormControlLabel
+          className={classes.combox}
+          control={
+            <Checkbox
+              checked={stateFilterCheckbox}
+              onChange={() => {
+                setStateFilterCheckbox(!stateFilterCheckbox);
+                if (stateFilterCheckbox === false) {
+                  filterDataCheckbox(stateColor);
+                } else {
+                  setStateColor(shuffleArray(ColorDummyData));
+                }
+              }}
+              inputProps={{ "aria-label": "primary checkbox" }}
+            />
+          }
+          label=" filter saturation"
+        />
 
         {/* Grid newdata color */}
         <Grid
