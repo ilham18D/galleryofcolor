@@ -17,12 +17,12 @@ You will also see any lint errors in the console.
 ## Task for REACT :
     * 40 unique random colors
     * filters to hide/show By category (select auto Autocomplete)
-    * boolean/checbox for all element
+    * boolean/checbox saturation for all element
 
 
 ## not yet reachable
-    * boolean/checbox which can be random for each element
-    
+    * boolean/checbox saturation which can be random for each element
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
